@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pet_store/components/homepage.dart';
+import 'package:pet_store/components/landingPage.dart';
 import 'package:pet_store/main.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:linked_scroll_controller/linked_scroll_controller.dart';
@@ -100,7 +101,7 @@ class _StartingPageState extends State<StartingPage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const MyHomePage()),
+                  MaterialPageRoute(builder: (context) => const landingPage()),
                 );
               },
               style: TextButton.styleFrom(backgroundColor: Colors.yellow),
