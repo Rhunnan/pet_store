@@ -1,4 +1,5 @@
 import 'store_class.dart';
+import 'package:flutter/material.dart';
 
 List<Pet> catStoreItems = [
   Pet("Bingal Cat", "assets/images/bingalCat.png", 85.00),
@@ -10,6 +11,18 @@ List<Pet> catStoreItems = [
 ];
 
 List<Store> listOfPetStores = [
+  Store("Cat Pet Store", "assets/images/sphinxCat.png", "Colon, Cebu City",
+      catStoreItems),
+  Store("Cat Pet Store", "assets/images/sphinxCat.png", "Colon, Cebu City",
+      catStoreItems),
+  Store("Cat Pet Store", "assets/images/sphinxCat.png", "Colon, Cebu City",
+      catStoreItems),
+  Store("Cat Pet Store", "assets/images/sphinxCat.png", "Colon, Cebu City",
+      catStoreItems),
+  Store("Cat Pet Store", "assets/images/sphinxCat.png", "Colon, Cebu City",
+      catStoreItems),
+  Store("Cat Pet Store", "assets/images/sphinxCat.png", "Colon, Cebu City",
+      catStoreItems),
   Store("Cat Pet Store", "assets/images/sphinxCat.png", "Colon, Cebu City",
       catStoreItems)
 ];
