@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pet_store/components/catalog_page.dart';
+import 'package:pet_store/components/stores.dart';
 import 'package:pet_store/components/homepage.dart';
 
 class NavBar extends StatefulWidget {
@@ -15,7 +15,7 @@ class _NavBarState extends State<NavBar> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     MyHomePage(),
-    CatalogPage(),
+    StorePage(),
     Text(
       'Index 2: Notification',
       style: optionStyle,
@@ -46,12 +46,12 @@ class _NavBarState extends State<NavBar> {
             backgroundColor: Colors.white,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.turned_in),
-            label: 'Saved',
+            icon: Icon(Icons.store),
+            label: 'Stores',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: 'Notifications',
+            icon: Icon(Icons.shopping_cart),
+            label: 'Cart',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle),

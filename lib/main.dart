@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pet_store/components/starting_page.dart';
+import 'package:pet_store/components/store_class.dart';
+import 'package:provider/provider.dart';
 
 List<String> startData = [
   "assets/images/startCat.png",
@@ -7,7 +9,8 @@ List<String> startData = [
 ];
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) => CartModel(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
