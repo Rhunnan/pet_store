@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 List<Pet> catStoreItems = [
   Pet("Bingal Cat", "assets/images/bingalCat.png", 85.00,
-      "Introducing the Bengal cat, a vibrant and enigmatic breed that captivates the hearts of cat lovers worldwide. With a striking coat pattern that ranges from the classic black and white to the rare leopard spots, Bengals are not only beautiful but also come with a unique set of characteristics."),
+      "Introducing the Bengal cat, a vibrant and enigmatic\n breed that captivates the hearts of cat lovers worldwide.\n With a striking coat pattern that ranges from \nthe classic black and white to the rare leopard spots, \nBengals are not only beautiful but also come with a unique \nset of characteristics."),
   Pet("Abyssinan Cat", "assets/images/abysCat.png", 100.00,
-      "Abyssinians are known for their friendly and outgoing personalities, making them excellent companions for active families. They are highly social and can become bored if left alone for too long, so it's recommended to provide them with a companion cat or other pets. Despite their social nature, they are independent and enjoy a good amount of space to explore and play"),
+      "Abyssinians are known for their friendly and outgoing\n personalities, making them excellent companions for active families.\n They are highly social and can become bored if left alone for too long,\n so it's recommended to provide them with a companion cat or other pets. \nDespite their social nature, they are independent and enjoy a good amount of space \nto explore and play"),
   Pet("Burmese Cat", "assets/images/bingalCat.png", 60.00,
       "Discover the Burmese cat, a breed that is known for its striking appearance and friendly demeanor. With a coat that is short and sleek, these cats come in a variety of colors, including silver, blue, and lilac, with the silver Burmese being the most common. Their faces are flat, and their eyes are almond-shaped, which gives them an exotic look "),
   Pet("Persian Cat", "assets/images/persianCat.png", 99.00,
