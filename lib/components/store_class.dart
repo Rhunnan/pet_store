@@ -31,7 +31,7 @@ class CartModel extends ChangeNotifier {
     for (i = 0; i < cartItems.length; i++) {
       totalPrice += cartItems[i].petPrice;
     }
-
+    notifyListeners();
     return totalPrice;
   }
 

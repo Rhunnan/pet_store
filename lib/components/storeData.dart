@@ -1,5 +1,4 @@
 import 'store_class.dart';
-import 'package:flutter/material.dart';
 
 List<Pet> catStoreItems = [
   Pet("Bingal Cat", "assets/images/bingalCat.png", 85.00,

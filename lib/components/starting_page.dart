@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pet_store/components/homepage.dart';
 import 'package:pet_store/components/landingPage.dart';
 import 'package:pet_store/main.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';

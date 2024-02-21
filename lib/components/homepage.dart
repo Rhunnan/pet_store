@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pet_store/components/navigation_bar.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
