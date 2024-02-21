@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pet_store/components/cartPage.dart';
 import 'package:pet_store/components/stores.dart';
 import 'package:pet_store/components/homepage.dart';
 
@@ -16,10 +17,7 @@ class _NavBarState extends State<NavBar> {
   static const List<Widget> _widgetOptions = <Widget>[
     MyHomePage(),
     StorePage(),
-    Text(
-      'Index 2: Notification',
-      style: optionStyle,
-    ),
+    MyCart(),
     Text(
       'Index 3: Profile',
       style: optionStyle,

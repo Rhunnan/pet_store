@@ -8,7 +8,7 @@ class Pet {
   String aboutPet = "";
   double petPrice = 0.00;
 
-  Pet(this.petName, this.imagePath, this.petPrice);
+  Pet(this.petName, this.imagePath, this.petPrice, this.aboutPet);
 }
 
 class Store {
