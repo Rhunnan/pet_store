@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pet_store/components/petProfile.dart';
 import 'package:pet_store/components/store_class.dart';
 
 class Product extends StatefulWidget {
@@ -46,7 +47,15 @@ class _ProductState extends State<Product> {
                 itemCount: widget.store.listOfPets.length,
                 itemBuilder: (context, index) {
                   return GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MyPetProfile(
+                                  pet: widget.store.listOfPets[index],
+                                )),
+                      );
+                    },
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 20, right: 20),
                       child: Container(
@@ -91,7 +100,8 @@ class _ProductState extends State<Product> {
                               style: const TextStyle(fontSize: 10),
                             ),
                             Text(
-                              "${widget.store.listOfPets[index].petPrice.toString()}",
+                              widget.store.listOfPets[index].petPrice
+                                  .toString(),
                               style: const TextStyle(fontSize: 10),
                             ),
                           ],
