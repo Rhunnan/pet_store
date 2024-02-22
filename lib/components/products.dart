@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pet_store/components/cartPage.dart';
 import 'package:pet_store/components/petProfile.dart';
 import 'package:pet_store/components/store_class.dart';
 
@@ -14,6 +15,7 @@ class _ProductState extends State<Product> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.yellow,
         title: const Padding(
           padding: EdgeInsets.only(left: 55),
           child: Text(
@@ -22,7 +24,14 @@ class _ProductState extends State<Product> {
           ),
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart))
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MyCart()),
+                );
+              },
+              icon: const Icon(Icons.shopping_cart))
         ],
       ),
       body: Column(

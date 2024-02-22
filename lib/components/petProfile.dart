@@ -15,6 +15,7 @@ class _MyPetProfileState extends State<MyPetProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.yellow,
         title: const Padding(
           padding: EdgeInsets.only(left: 55),
           child: Text(
@@ -34,7 +35,7 @@ class _MyPetProfileState extends State<MyPetProfile> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.only(bottom: 20, right: 20),
+        padding: const EdgeInsets.only(top: 50, bottom: 20, right: 20),
         child: Container(
           height: 700,
           decoration: BoxDecoration(

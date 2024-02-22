@@ -9,14 +9,21 @@ class MyCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("My Cart"), actions: [
-        IconButton(
-            onPressed: () {
-              Provider.of<CartModel>(context, listen: false).removeAll();
-            },
-            icon: const Icon(Icons.delete))
-      ]),
+      appBar: AppBar(
+          backgroundColor: Colors.yellow,
+          title: const Text(
+            "My Cart",
+            style: TextStyle(color: Colors.white),
+          ),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Provider.of<CartModel>(context, listen: false).removeAll();
+                },
+                icon: const Icon(Icons.delete))
+          ]),
       body: Container(
+        padding: EdgeInsets.only(top: 20),
         height: 700,
         width: 400,
         decoration: const BoxDecoration(color: Colors.white),
@@ -25,12 +32,12 @@ class MyCart extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(
-                  height: 600,
+                  height: 580,
                   width: 400,
                   child: Column(
                     children: [
                       Container(
-                        height: 600,
+                        height: 580,
                         width: 380,
                         decoration: const BoxDecoration(color: Colors.white),
                         child: cart.cartItems.isEmpty
