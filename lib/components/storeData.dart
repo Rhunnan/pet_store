@@ -28,18 +28,18 @@ List<Pet> catStoreItems = [
 ];
 
 List<Store> listOfPetStores = [
-  Store("Cat Pet Store", "assets/images/sphinxCat.png", "Colon, Cebu City",
+  Store("Cat Store", "assets/images/sphinxCat.png", "Colon, Cebu City",
       catStoreItems),
-  Store("Cat Pet Store", "assets/images/sphinxCat.png", "Colon, Cebu City",
+  Store("Pussy Store", "assets/images/sphinxCat.png", "Colon, Cebu City",
       catStoreItems),
-  Store("Cat Pet Store", "assets/images/sphinxCat.png", "Colon, Cebu City",
+  Store("Pet Store", "assets/images/sphinxCat.png", "Colon, Cebu City",
       catStoreItems),
-  Store("Cat Pet Store", "assets/images/sphinxCat.png", "Colon, Cebu City",
+  Store("Meow Store", "assets/images/sphinxCat.png", "Colon, Cebu City",
       catStoreItems),
-  Store("Cat Pet Store", "assets/images/sphinxCat.png", "Colon, Cebu City",
+  Store("Ming Store", "assets/images/sphinxCat.png", "Colon, Cebu City",
       catStoreItems),
-  Store("Cat Pet Store", "assets/images/sphinxCat.png", "Colon, Cebu City",
+  Store("MewMew Store", "assets/images/sphinxCat.png", "Colon, Cebu City",
       catStoreItems),
-  Store("Cat Pet Store", "assets/images/sphinxCat.png", "Colon, Cebu City",
+  Store("Sphinx Store", "assets/images/sphinxCat.png", "Colon, Cebu City",
       catStoreItems)
 ];

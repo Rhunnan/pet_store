@@ -108,7 +108,7 @@ class _MyPetProfileState extends State<MyPetProfile> {
                     ),
                     Text(
                       widget.pet.petPrice.toString(),
-                      style: TextStyle(color: Colors.green, fontSize: 30),
+                      style: const TextStyle(color: Colors.green, fontSize: 30),
                     ),
                   ],
                 ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pet_store/components/cartPage.dart';
 import 'package:pet_store/components/petProfile.dart';
+import 'package:pet_store/components/storeData.dart';
 import 'package:pet_store/components/store_class.dart';
 
 class Product extends StatefulWidget {
@@ -11,6 +12,22 @@ class Product extends StatefulWidget {
 }
 
 class _ProductState extends State<Product> {
+  List<Pet> listOfPets = catStoreItems;
+  TextEditingController _poductSearch = TextEditingController();
+
+  void searchEngineProduct(TextEditingController searchText) {
+    if (searchText.text.isEmpty) {
+      listOfPets = catStoreItems;
+    } else {
+      listOfPets = catStoreItems
+          .map((e) => e)
+          .where((element) => element.petName
+              .toLowerCase()
+              .contains(searchText.text.toLowerCase()))
+          .toList();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,21 +61,22 @@ class _ProductState extends State<Product> {
               decoration: const BoxDecoration(
                   border: Border.fromBorderSide(
                       BorderSide(style: BorderStyle.solid))),
-              child: const Row(
+              child: Row(
                 children: [
-                  Icon(Icons.search),
+                  const Icon(Icons.search),
                   Padding(
-                    padding: EdgeInsets.only(top: 10, right: 30),
+                    padding: const EdgeInsets.only(top: 10, right: 30),
                     child: Padding(
-                      padding: EdgeInsets.only(left: 8.0),
+                      padding: const EdgeInsets.only(left: 8.0),
                       child: SizedBox(
                         height: 70,
                         width: 220,
                         child: TextField(
-                          style: TextStyle(
+                          controller: _poductSearch,
+                          style: const TextStyle(
                               fontSize: 20,
                               color: Color.fromARGB(255, 136, 129, 129)),
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                               border: InputBorder.none,
                               hintText: 'Search',
                               hintStyle: TextStyle(fontSize: 25)),
@@ -66,7 +84,7 @@ class _ProductState extends State<Product> {
                       ),
                     ),
                   ),
-                  Icon(Icons.edit)
+                  const Icon(Icons.edit)
                 ],
               ),
             ),

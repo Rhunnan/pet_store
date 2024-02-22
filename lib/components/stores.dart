@@ -1,7 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_store/components/products.dart';
 import 'package:pet_store/components/storeData.dart';
+import 'package:pet_store/components/store_class.dart';
+import 'package:provider/provider.dart';
 
 class StorePage extends StatefulWidget {
   const StorePage({super.key});
@@ -11,6 +12,23 @@ class StorePage extends StatefulWidget {
 }
 
 class _StorePageState extends State<StorePage> {
+  final TextEditingController _contoller = TextEditingController();
+  List<Store> listOfStore = listOfPetStores;
+
+  void searchStore(TextEditingController searchText) {
+    if (searchText.text.isEmpty) {
+      listOfStore = listOfPetStores;
+    } else {
+      listOfStore = listOfPetStores
+          .map((element) => element)
+          .where((element) => element.storeName
+              .toLowerCase()
+              .contains(searchText.text.toLowerCase()))
+          .toList();
+    }
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -23,28 +41,35 @@ class _StorePageState extends State<StorePage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 20, left: 5),
+            padding: const EdgeInsets.only(
+              bottom: 20,
+            ),
             child: Container(
               height: 50,
-              width: 320,
+              width: 300,
               decoration: const BoxDecoration(
                   border: Border.fromBorderSide(
                       BorderSide(style: BorderStyle.solid))),
-              child: const Row(
+              child: Row(
                 children: [
-                  Icon(Icons.search),
+                  IconButton(
+                      onPressed: () {
+                        searchStore(_contoller);
+                      },
+                      icon: Icon(Icons.search)),
                   Padding(
-                    padding: EdgeInsets.only(top: 10, right: 30),
+                    padding: const EdgeInsets.only(top: 10, right: 30),
                     child: Padding(
-                      padding: EdgeInsets.only(left: 8.0),
+                      padding: const EdgeInsets.only(left: 8.0),
                       child: SizedBox(
                         height: 70,
                         width: 220,
                         child: TextField(
-                          style: TextStyle(
+                          controller: _contoller,
+                          style: const TextStyle(
                               fontSize: 20,
                               color: Color.fromARGB(255, 136, 129, 129)),
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                               border: InputBorder.none,
                               hintText: 'Search',
                               hintStyle: TextStyle(fontSize: 25)),
@@ -52,7 +77,6 @@ class _StorePageState extends State<StorePage> {
                       ),
                     ),
                   ),
-                  Icon(Icons.edit)
                 ],
               ),
             ),
@@ -64,7 +88,7 @@ class _StorePageState extends State<StorePage> {
               width: 350,
               child: ListView.builder(
                 scrollDirection: Axis.vertical,
-                itemCount: listOfPetStores.length,
+                itemCount: listOfStore.length,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 20, right: 20),
@@ -92,7 +116,7 @@ class _StorePageState extends State<StorePage> {
                                 borderRadius: BorderRadius.circular(15),
                                 image: DecorationImage(
                                     image: AssetImage(
-                                        listOfPetStores[index].imagePath),
+                                        listOfStore[index].imagePath),
                                     fit: BoxFit.cover),
                                 boxShadow: const [
                                   BoxShadow(
@@ -117,7 +141,7 @@ class _StorePageState extends State<StorePage> {
                                 Padding(
                                   padding: const EdgeInsets.only(left: 20),
                                   child: Text(
-                                    listOfPetStores[index].storeName,
+                                    listOfStore[index].storeName,
                                     style: const TextStyle(
                                         fontWeight: FontWeight.w500,
                                         fontSize: 30),
@@ -131,7 +155,7 @@ class _StorePageState extends State<StorePage> {
                             child: Row(
                               children: [
                                 const Icon(Icons.location_city),
-                                Text(listOfPetStores[index].location),
+                                Text(listOfStore[index].location),
                               ],
                             ),
                           ),
@@ -141,7 +165,7 @@ class _StorePageState extends State<StorePage> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => Product(
-                                            store: listOfPetStores[index],
+                                            store: listOfStore[index],
                                           )),
                                 );
                               },
@@ -167,70 +191,6 @@ class _StorePageState extends State<StorePage> {
               ),
             ),
           ),
-          // InkWell(
-          //   onTap: () {},
-          //   child:
-
-          // onTap: (){Navigator.push(
-          //             context,
-          //             MaterialPageRoute(builder: (context) => const putpage()),
-          //           );},
-          // child: Container(
-          //   height: 600,
-          //   width: 350,
-          //   decoration: BoxDecoration(
-          //     color: Colors.blue,
-          //   ),
-          //   child: ListView.builder(
-          //       scrollDirection: Axis.vertical,
-          //       itemCount: listOfPetStores.length,
-          //       itemBuilder: (context, index) {
-          //         return Padding(
-          //           padding: const EdgeInsets.only(bottom: 20),
-          //           child: Container(
-          //             height: 280,
-          //             width: 300,
-          //             decoration:
-          //                 BoxDecoration(color: Colors.white, boxShadow: [
-          //               BoxShadow(
-          //                 color: Colors.black,
-          //                 spreadRadius: 2,
-          //                 blurRadius: 5,
-          //                 offset: Offset(0, 3),
-          //               ),
-          //             ]),
-          //             child: Column(
-          //               children: [
-          //                 Container(
-          //                   height: 200,
-          //                   width: 400,
-          //                   decoration: BoxDecoration(
-          //                     image: DecorationImage(
-          //                         image: AssetImage(
-          //                             listOfPetStores[index].imagePath),
-          //                         fit: BoxFit.cover),
-          //                     boxShadow: [
-          //                       BoxShadow(
-          //                         color: Colors.black,
-          //                         spreadRadius: 0,
-          //                         blurRadius: 0,
-          //                         offset: Offset(0, 0),
-          //                       ),
-          //                     ],
-          //                   ),
-          //                 ),
-          //                 Text(listOfPetStores[index].storeName),
-          //                 const Row(
-          //                   children: [Icon(Icons.add_circle), Text("Open")],
-          //                 ),
-          //                 Text(listOfPetStores[index].location)
-          //               ],
-          //             ),
-          //           ),
-          //         );
-          //       }),
-          // ),
-          // ),
         ],
       ),
     );
