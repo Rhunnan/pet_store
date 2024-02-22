@@ -52,7 +52,7 @@ class _ProductState extends State<Product> {
               width: 350,
               child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2),
+                    childAspectRatio: 0.8, crossAxisCount: 2),
                 itemCount: widget.store.listOfPets.length,
                 itemBuilder: (context, index) {
                   return GestureDetector(
@@ -106,13 +106,26 @@ class _ProductState extends State<Product> {
                             ),
                             Text(
                               widget.store.listOfPets[index].petName,
-                              style: const TextStyle(fontSize: 10),
+                              style: const TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.w400),
                             ),
-                            Text(
-                              widget.store.listOfPets[index].petPrice
-                                  .toString(),
-                              style: const TextStyle(fontSize: 10),
-                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 40),
+                              child: Row(
+                                children: [
+                                  const Icon(
+                                    Icons.attach_money_rounded,
+                                    color: Colors.green,
+                                  ),
+                                  Text(
+                                    widget.store.listOfPets[index].petPrice
+                                        .toString(),
+                                    style: const TextStyle(
+                                        color: Colors.green, fontSize: 20),
+                                  ),
+                                ],
+                              ),
+                            )
                           ],
                         ),
                       ),

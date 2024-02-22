@@ -23,7 +23,7 @@ class MyCart extends StatelessWidget {
                 icon: const Icon(Icons.delete))
           ]),
       body: Container(
-        padding: EdgeInsets.only(top: 20),
+        padding: const EdgeInsets.only(top: 20),
         height: 700,
         width: 400,
         decoration: const BoxDecoration(color: Colors.white),
@@ -188,19 +188,19 @@ class MyCart extends StatelessWidget {
                                       fontSize: 30,
                                       fontWeight: FontWeight.w500),
                                 ),
-                                const SizedBox(
-                                  height: 30,
-                                  width: 30,
-                                  child: Icon(
-                                    Icons.attach_money_rounded,
-                                  ),
-                                ),
-                                Text(
-                                  cart.getTotalPrice().toString(),
-                                  style: const TextStyle(
-                                      fontSize: 30,
-                                      fontWeight: FontWeight.w500),
-                                ),
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.attach_money_rounded,
+                                      color: Colors.green,
+                                    ),
+                                    Text(
+                                      cart.getTotalPrice().toString(),
+                                      style: const TextStyle(
+                                          color: Colors.green, fontSize: 30),
+                                    ),
+                                  ],
+                                )
                               ],
                             )),
                       )

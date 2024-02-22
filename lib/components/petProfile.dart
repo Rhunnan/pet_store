@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_store/components/cartPage.dart';
 import 'package:pet_store/components/store_class.dart';
@@ -35,9 +36,10 @@ class _MyPetProfileState extends State<MyPetProfile> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 50, bottom: 20, right: 20),
+        padding: const EdgeInsets.only(top: 40, bottom: 20, left: 10),
         child: Container(
-          height: 700,
+          height: 600,
+          width: 380,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color: Colors.yellow,
@@ -52,7 +54,7 @@ class _MyPetProfileState extends State<MyPetProfile> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 15),
+                padding: const EdgeInsets.only(top: 30),
                 child: Container(
                   height: 200,
                   width: 300,
@@ -74,36 +76,44 @@ class _MyPetProfileState extends State<MyPetProfile> {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20),
-                child: Row(
-                  children: [
-                    const Icon(Icons.attach_money_rounded),
-                    Text(widget.pet.petPrice.toString()),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: Text(
-                        widget.pet.petName,
-                        style: const TextStyle(
-                            fontWeight: FontWeight.w500, fontSize: 30),
-                      ),
-                    ),
-                  ],
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 30),
+                  child: Text(
+                    widget.pet.petName,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w500, fontSize: 30),
+                  ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20),
                 child: Row(
                   children: [
-                    const Icon(Icons.details),
-                    FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text(
-                          widget.pet.aboutPet,
-                          textAlign: TextAlign.justify,
-                        )),
+                    Container(
+                      width: 320,
+                      child: AutoSizeText(
+                        widget.pet.aboutPet,
+                      ),
+                    ),
                   ],
                 ),
               ),
-              TextButton(
+              Padding(
+                padding: const EdgeInsets.only(left: 150.0),
+                child: Row(
+                  children: [
+                    const Icon(
+                      Icons.attach_money_rounded,
+                      color: Colors.green,
+                    ),
+                    Text(
+                      widget.pet.petPrice.toString(),
+                      style: TextStyle(color: Colors.green, fontSize: 30),
+                    ),
+                  ],
+                ),
+              ),
+              ElevatedButton(
                   onPressed: () {
                     Provider.of<CartModel>(context, listen: false)
                         .addPetItem(widget.pet);
