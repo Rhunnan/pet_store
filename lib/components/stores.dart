@@ -16,34 +16,30 @@ class _StorePageState extends State<StorePage> {
       child: Column(
         children: [
           const Center(
-            child: Padding(
-              padding: EdgeInsets.only(top: 15),
-              child: Text(
-                "Store",
-                style: TextStyle(fontSize: 35),
-              ),
+            child: Text(
+              "Store",
+              style: TextStyle(fontSize: 30),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 25, top: 25),
+            padding: const EdgeInsets.only(bottom: 15, top: 15),
             child: Container(
-              height: 50,
+              height: 30,
               width: 310,
               decoration: const BoxDecoration(color: Colors.blue),
             ),
           ),
           SizedBox(
-            height: 550,
+            height: 620,
             width: 350,
-            child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 1),
+            child: ListView.builder(
+              scrollDirection: Axis.vertical,
               itemCount: listOfPetStores.length,
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 20, right: 20),
                   child: Container(
-                    height: 200,
+                    height: 290,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         color: Colors.yellow,
@@ -60,7 +56,7 @@ class _StorePageState extends State<StorePage> {
                         Padding(
                           padding: const EdgeInsets.only(top: 15),
                           child: Container(
-                            height: 200,
+                            height: 150,
                             width: 300,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),

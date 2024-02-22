@@ -102,29 +102,12 @@ class _MyPetProfileState extends State<MyPetProfile> {
                   ],
                 ),
               ),
-              GestureDetector(
-                  onTap: () {
+              TextButton(
+                  onPressed: () {
                     Provider.of<CartModel>(context, listen: false)
                         .addPetItem(widget.pet);
                   },
-                  child: Container(
-                    height: 40,
-                    width: 200,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.white),
-                    child: const Center(
-                        child: Row(
-                      children: [
-                        Text(
-                          "Add To Cart",
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w400),
-                        ),
-                        Icon(Icons.shopping_cart)
-                      ],
-                    )),
-                  ))
+                  child: const Text("Add To Cart"))
             ],
           ),
         ),

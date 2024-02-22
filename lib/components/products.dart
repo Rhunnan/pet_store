@@ -39,7 +39,7 @@ class _ProductState extends State<Product> {
           ),
           Center(
             child: SizedBox(
-              height: 550,
+              height: 650,
               width: 350,
               child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -62,7 +62,7 @@ class _ProductState extends State<Product> {
                         height: 100,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
-                            color: Colors.white,
+                            color: Colors.yellow,
                             boxShadow: const [
                               BoxShadow(
                                 color: Colors.grey,
