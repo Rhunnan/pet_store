@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:pet_store/components/navigation_bar.dart';
 
-class landingPage extends StatefulWidget {
-  const landingPage({super.key});
+class LandingPage extends StatefulWidget {
+  const LandingPage({super.key});
 
   @override
-  State<landingPage> createState() => _landingPageState();
+  State<LandingPage> createState() => _LandingPageState();
 }
 
-class _landingPageState extends State<landingPage> {
+class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return NavBar();

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pet_store/components/cartPage.dart';
 import 'package:pet_store/components/stores.dart';
-import 'package:pet_store/components/homepage.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
@@ -15,7 +14,6 @@ class _NavBarState extends State<NavBar> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-    MyHomePage(),
     StorePage(),
     MyCart(),
     Text(
@@ -38,11 +36,6 @@ class _NavBarState extends State<NavBar> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-            backgroundColor: Colors.white,
-          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.store),
             label: 'Stores',

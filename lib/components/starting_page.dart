@@ -100,7 +100,7 @@ class _StartingPageState extends State<StartingPage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const landingPage()),
+                  MaterialPageRoute(builder: (context) => const LandingPage()),
                 );
               },
               style: TextButton.styleFrom(backgroundColor: Colors.yellow),

@@ -36,17 +36,43 @@ class _ProductState extends State<Product> {
       ),
       body: Column(
         children: [
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 25, top: 25),
-              child: Container(
-                height: 50,
-                width: 310,
-                decoration: const BoxDecoration(color: Colors.blue),
+          Padding(
+            padding: const EdgeInsets.only(top: 10, bottom: 20, left: 5),
+            child: Container(
+              height: 50,
+              width: 320,
+              decoration: const BoxDecoration(
+                  border: Border.fromBorderSide(
+                      BorderSide(style: BorderStyle.solid))),
+              child: const Row(
+                children: [
+                  Icon(Icons.search),
+                  Padding(
+                    padding: EdgeInsets.only(top: 10, right: 30),
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 8.0),
+                      child: SizedBox(
+                        height: 70,
+                        width: 220,
+                        child: TextField(
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: Color.fromARGB(255, 136, 129, 129)),
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Search',
+                              hintStyle: TextStyle(fontSize: 25)),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Icon(Icons.edit)
+                ],
               ),
             ),
           ),
-          Center(
+          Padding(
+            padding: const EdgeInsets.only(left: 17.0),
             child: SizedBox(
               height: 650,
               width: 350,

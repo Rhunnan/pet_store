@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_store/components/products.dart';
 import 'package:pet_store/components/storeData.dart';
@@ -12,7 +13,7 @@ class StorePage extends StatefulWidget {
 class _StorePageState extends State<StorePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       child: Column(
         children: [
           const Center(
@@ -22,117 +23,148 @@ class _StorePageState extends State<StorePage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 15, top: 15),
+            padding: const EdgeInsets.only(bottom: 20, left: 5),
             child: Container(
-              height: 30,
-              width: 310,
-              decoration: const BoxDecoration(color: Colors.blue),
+              height: 50,
+              width: 320,
+              decoration: const BoxDecoration(
+                  border: Border.fromBorderSide(
+                      BorderSide(style: BorderStyle.solid))),
+              child: const Row(
+                children: [
+                  Icon(Icons.search),
+                  Padding(
+                    padding: EdgeInsets.only(top: 10, right: 30),
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 8.0),
+                      child: SizedBox(
+                        height: 70,
+                        width: 220,
+                        child: TextField(
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: Color.fromARGB(255, 136, 129, 129)),
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Search',
+                              hintStyle: TextStyle(fontSize: 25)),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Icon(Icons.edit)
+                ],
+              ),
             ),
           ),
-          SizedBox(
-            height: 620,
-            width: 350,
-            child: ListView.builder(
-              scrollDirection: Axis.vertical,
-              itemCount: listOfPetStores.length,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 20, right: 20),
-                  child: Container(
-                    height: 290,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Colors.yellow,
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Colors.grey,
-                            spreadRadius: 1,
-                            blurRadius: 1,
-                            offset: Offset(1, 1),
+          Padding(
+            padding: const EdgeInsets.only(left: 17),
+            child: SizedBox(
+              height: 620,
+              width: 350,
+              child: ListView.builder(
+                scrollDirection: Axis.vertical,
+                itemCount: listOfPetStores.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 20, right: 20),
+                    child: Container(
+                      height: 290,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Colors.yellow,
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.grey,
+                              spreadRadius: 1,
+                              blurRadius: 1,
+                              offset: Offset(1, 1),
+                            ),
+                          ]),
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 15),
+                            child: Container(
+                              height: 150,
+                              width: 300,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                        listOfPetStores[index].imagePath),
+                                    fit: BoxFit.cover),
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: Colors.black,
+                                    spreadRadius: 0,
+                                    blurRadius: 0,
+                                    offset: Offset(0, 0),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
-                        ]),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 15),
-                          child: Container(
-                            height: 150,
-                            width: 300,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                      listOfPetStores[index].imagePath),
-                                  fit: BoxFit.cover),
-                              boxShadow: const [
-                                BoxShadow(
-                                  color: Colors.black,
-                                  spreadRadius: 0,
-                                  blurRadius: 0,
-                                  offset: Offset(0, 0),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20),
+                            child: Row(
+                              children: [
+                                const Icon(
+                                  Icons.circle,
+                                  color: Colors.green,
+                                ),
+                                const Text("Open"),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 20),
+                                  child: Text(
+                                    listOfPetStores[index].storeName,
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 30),
+                                  ),
                                 ),
                               ],
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20),
-                          child: Row(
-                            children: [
-                              const Icon(
-                                Icons.circle,
-                                color: Colors.green,
-                              ),
-                              const Text("Open"),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 20),
-                                child: Text(
-                                  listOfPetStores[index].storeName,
-                                  style: const TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 30),
-                                ),
-                              ),
-                            ],
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20),
+                            child: Row(
+                              children: [
+                                const Icon(Icons.location_city),
+                                Text(listOfPetStores[index].location),
+                              ],
+                            ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20),
-                          child: Row(
-                            children: [
-                              const Icon(Icons.location_city),
-                              Text(listOfPetStores[index].location),
-                            ],
-                          ),
-                        ),
-                        InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Product(
-                                          store: listOfPetStores[index],
-                                        )),
-                              );
-                            },
-                            child: Container(
-                              height: 40,
-                              width: 200,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Colors.white),
-                              child: const Center(
-                                  child: Text(
-                                "Visit Store",
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.w400),
-                              )),
-                            ))
-                      ],
+                          InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Product(
+                                            store: listOfPetStores[index],
+                                          )),
+                                );
+                              },
+                              child: Container(
+                                height: 40,
+                                width: 200,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.white),
+                                child: const Center(
+                                    child: Text(
+                                  "Visit Store",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w400),
+                                )),
+                              ))
+                        ],
+                      ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
           ),
           // InkWell(
