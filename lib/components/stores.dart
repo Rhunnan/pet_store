@@ -55,6 +55,7 @@ class _StorePageState extends State<StorePage> {
                   IconButton(
                       onPressed: () {
                         searchStore(_contoller);
+                        _contoller.clear();
                       },
                       icon: Icon(Icons.search)),
                   Padding(

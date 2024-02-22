@@ -12,23 +12,32 @@ class Product extends StatefulWidget {
 }
 
 class _ProductState extends State<Product> {
-  List<Pet> listOfPets = catStoreItems;
-  TextEditingController _poductSearch = TextEditingController();
+  final TextEditingController _poductSearch = TextEditingController();
 
   void searchEngineProduct(TextEditingController searchText) {
     if (searchText.text.isEmpty) {
-      listOfPets = catStoreItems;
+      listOfPets = widget.store.listOfPets;
     } else {
-      listOfPets = catStoreItems
+      listOfPets = widget.store.listOfPets
           .map((e) => e)
           .where((element) => element.petName
               .toLowerCase()
               .contains(searchText.text.toLowerCase()))
           .toList();
     }
+
+    setState(() {});
   }
 
   @override
+  late List<Pet> listOfPets;
+
+  @override
+  void initState() {
+    super.initState();
+    listOfPets = widget.store.listOfPets;
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -63,7 +72,12 @@ class _ProductState extends State<Product> {
                       BorderSide(style: BorderStyle.solid))),
               child: Row(
                 children: [
-                  const Icon(Icons.search),
+                  IconButton(
+                      onPressed: () {
+                        searchEngineProduct(_poductSearch);
+                        _poductSearch.clear();
+                      },
+                      icon: const Icon(Icons.search)),
                   Padding(
                     padding: const EdgeInsets.only(top: 10, right: 30),
                     child: Padding(
@@ -84,7 +98,6 @@ class _ProductState extends State<Product> {
                       ),
                     ),
                   ),
-                  const Icon(Icons.edit)
                 ],
               ),
             ),
@@ -97,7 +110,7 @@ class _ProductState extends State<Product> {
               child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     childAspectRatio: 0.8, crossAxisCount: 2),
-                itemCount: widget.store.listOfPets.length,
+                itemCount: listOfPets.length,
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
@@ -105,7 +118,7 @@ class _ProductState extends State<Product> {
                         context,
                         MaterialPageRoute(
                             builder: (context) => MyPetProfile(
-                                  pet: widget.store.listOfPets[index],
+                                  pet: listOfPets[index],
                                 )),
                       );
                     },
@@ -134,8 +147,8 @@ class _ProductState extends State<Product> {
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(15),
                                   image: DecorationImage(
-                                      image: AssetImage(widget
-                                          .store.listOfPets[index].imagePath),
+                                      image: AssetImage(
+                                          listOfPets[index].imagePath),
                                       fit: BoxFit.cover),
                                   boxShadow: const [
                                     BoxShadow(
@@ -149,7 +162,7 @@ class _ProductState extends State<Product> {
                               ),
                             ),
                             Text(
-                              widget.store.listOfPets[index].petName,
+                              listOfPets[index].petName,
                               style: const TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.w400),
                             ),
@@ -162,8 +175,7 @@ class _ProductState extends State<Product> {
                                     color: Colors.green,
                                   ),
                                   Text(
-                                    widget.store.listOfPets[index].petPrice
-                                        .toString(),
+                                    listOfPets[index].petPrice.toString(),
                                     style: const TextStyle(
                                         color: Colors.green, fontSize: 20),
                                   ),
